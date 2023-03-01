@@ -1,0 +1,24 @@
+//Snippet -> rafc
+
+import React, { useContext } from "react";
+import Transaction from "./Transaction";
+import { GlobalContext } from "../context/GlobalState";
+
+const TransactionList = () => {
+  const { transactions } = useContext(GlobalContext);
+  return (
+    <>
+      <h3>History</h3>
+      <ul className="list">
+        {/*Here we  use map on transactions array*/}
+        {/*transaction is used to fetch data from transactions array*/}
+        {transactions.map(transaction => (
+          <Transaction key={transaction.id} transaction={transaction}/>
+        ))}
+
+      </ul>
+    </>
+  );
+};
+
+export default TransactionList;
